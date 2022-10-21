@@ -22,12 +22,12 @@ Download Node.js from https://nodejs.org/en/download/
 
 * Clone this repository
     ```bash
-    git clone <url>
+    git clone https://github.com/AlexGeniusMan/Avia-Hack-2022-RealityX-Frontend
     ```
 
 * Open a console in a folder and go to the cloned repository
     ```bash
-    cd <project name>
+    cd Avia-Hack-2022-RealityX-Frontend
     ```
 
 * Install the packages required for the project
@@ -36,7 +36,7 @@ Download Node.js from https://nodejs.org/en/download/
     ```
 
 * Finally start the project
-    * Create `.env` file in the directory named `ArtWay-Frontend` and add your secret data to it
+    * Create `.env` file in the directory named `Avia-Hack-2022-RealityX-Frontend` and add your secret data to it
         ```env
         REACT_APP_PRODUCTION_URL = "your domain name"
         ```
@@ -49,5 +49,5 @@ Now wait, our project will open soon in the browser on the http://localhost:3000
 
 ## Build
 
-1. Open console in folder
+1. Open console in project folder
 2. `npm run build` builds the app for production to the build folder.
