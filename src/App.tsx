@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import './App.scss'
 import 'react-toastify/dist/ReactToastify.css';
-import Dashboard from './pages/Dashboard/Dashboard'
 import {ToastContainer} from 'react-toastify'
 import {Route, Routes} from 'react-router-dom'
 import Login from './pages/Login/Login'
@@ -29,7 +28,7 @@ const App = () => {
         <>
             <Routes>
                 <Route path='/login' element={<Login />} />
-                <Route path='*' element={<Dashboard />} />
+                <Route path='*' element={<Login />} />
             </Routes>
             <ToastContainer
                 position="bottom-right"

@@ -1,0 +1,39 @@
+@use "../../../../polyus/src/styles/icons/index" as *;
+@use "../../../../polyus/src/styles/design-tokens/color" as *;
+
+.button-icon{
+  display: block;
+}
+
+.general{
+  color: $general-100;
+}
+.green{
+  color: $green-100;
+}
+.red{
+  color: $red-100;
+}
+.orange{
+  color: $orange-100;
+}
+.blue{
+  color: $blue-100;
+}
+
+.general-light{
+  color: $gray;
+}
+.green-light{
+  color: $green-20;
+}
+.red-light{
+  color: $red-20;
+}
+.orange-light{
+  color: $orange-20;
+}
+.blue-light{
+  color: $blue-20;
+}
+
