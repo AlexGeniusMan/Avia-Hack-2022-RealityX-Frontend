@@ -1,0 +1,22 @@
+@use './color' as dt;
+
+@mixin flexible {
+    display: flex;
+    align-items: center;
+}
+
+@mixin primaryText {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: dt.$primary-color-08;
+}
+
+@mixin absoluteCenter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
