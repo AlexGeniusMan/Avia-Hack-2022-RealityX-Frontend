@@ -1,4 +1,4 @@
-import {ClickableObjectMini, DefaultParams} from '../../../../polyus/src/types/Types'
+import {ClickableObjectMini, DefaultParams} from '../../types/Types'
 
 export interface IconProps extends DefaultParams, ClickableObjectMini {
     size?: number,

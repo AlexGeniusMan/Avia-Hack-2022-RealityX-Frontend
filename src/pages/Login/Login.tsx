@@ -4,7 +4,6 @@ import {Navigate} from 'react-router-dom'
 import {AppStateType, TypedDispatch} from '../../redux/redux-store'
 import {useDispatch, useSelector} from 'react-redux'
 import Preloader from '../../components/Preloader/Preloader'
-import {ReactComponent as Logo} from '../../assets/logoDark.svg'
 import {Input} from '../../components/Input/Input'
 import {Button} from '../../components/Button/Button'
 import {login} from '../../redux/auth-reducer'
@@ -30,18 +29,15 @@ const Login = () => {
         <div className={styles['container']}>
             {isFetch && <Preloader />}
             <div className={styles['inner']}>
-                <div className={styles['header']}>
-                    <Logo />
-                </div>
                 <h2 className={styles['title']}>Авторизация</h2>
                 <div className={styles['input']}>
-                    <Input placeholder={'Логин'} defaultValue={email} onChange={(e) => setEmail(e.target.value)} />
+                    <Input color={'green'} placeholder={'realityxTeam@pochta.dom'} defaultValue={email} title={'Логин'} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div className={styles['input']}>
-                    <Input placeholder={'Пароль'} defaultValue={password} onChange={(e) => setPassword(e.target.value)} type='password' />
+                    <Input color={'green'} placeholder={'************'} defaultValue={password} title={'Пароль'} onChange={(e) => setPassword(e.target.value)} type='password' />
                 </div>
                 <div className={styles['button']}>
-                    <Button onClick={handleSubmit}>Вход</Button>
+                    <Button color={'green'} onClick={handleSubmit}>Войти</Button>
                 </div>
             </div>
         </div>

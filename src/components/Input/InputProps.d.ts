@@ -1,6 +1,6 @@
 import React from 'react'
 import Icon from '../Icon/Icon'
-import {DefaultParams} from '../../../../polyus/src/types/Types'
+import {DefaultParams} from '../../types/Types'
 
 type InputTypeEnum = 'text' | 'email' | 'password' | 'search' | 'tel' | 'date' | 'dateRange'| 'number'
 
@@ -24,7 +24,7 @@ export interface InputProps extends DefaultParams {
     autoFocus?: boolean;
     type?: InputTypeEnum;
     pattern?: string;
-    color?: 'default' | 'orange';
+    color?: 'default' | 'green';
     title?: string;
     maxLength?: number;
     tabIndex?: number

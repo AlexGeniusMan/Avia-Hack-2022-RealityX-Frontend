@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState} from 'react'
 import {InputProps} from './InputProps'
 import styles from './Input.module.scss'
-import {getClasses} from '../../../../polyus/src/utils/getClasses'
+import {getClasses} from '../../utils/getClasses'
 
 export function useInput(props: InputProps) {
     const [value, setValue] = useState<string>('')
@@ -23,7 +23,7 @@ export function useInput(props: InputProps) {
         const conditions: {[index: string]: boolean} = {
             'input-wrapper': true,
             'input-wrapper-disabled': Boolean(props.disabled),
-            'input-orange': props.color === 'orange',
+            'input-green': props.color === 'green',
         }
         return getClasses(conditions, styles, props.className)
     }, [props])

@@ -1,6 +1,6 @@
 import React from 'react'
 import Icon from '../Icon/Icon'
-import {ClickableObjectMini, DefaultParams} from '../../../../polyus/src/types/Types'
+import {ClickableObjectMini, DefaultParams} from '../../types/Types'
 
 export interface ButtonProps extends DefaultParams, ClickableObjectMini {
     children?: React.ReactNode | string;
@@ -10,5 +10,5 @@ export interface ButtonProps extends DefaultParams, ClickableObjectMini {
     loading?: boolean;
     success?: boolean;
     loadingIcon?: React.ReactNode<Icon>;
-    color?: 'green' | 'blue' | 'orange' | 'gray'
+    color?: 'green' | 'blue' | 'red' | 'gray'
 }

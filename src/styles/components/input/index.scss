@@ -1,11 +1,11 @@
-@use '../../../../../polyus/src/styles/design-tokens/index' as dt;
+@use '../../../styles/design-tokens' as dt;
 
 .title {
     color: #000;
     font-size: 14px;
     line-height: 17px;
-    font-weight: 600;
-    margin-bottom: 4px;
+    font-weight: 500;
+    margin-bottom: 6px;
 }
 
 .input-wrapper {
@@ -14,15 +14,15 @@
     border: 1px solid dt.$additional;
     border-radius: 4px;
     width: 100%;
-    padding: 3px 16px;
 
     @include dt.flexible();
     gap: 8px;
     justify-content: space-between;
+    transition: all 0.2s ease;
 
     &:focus-within {
-        color: #000;
-        border-color: #000;
+        color: dt.$additional;
+        border-color: dt.$additional;
     }
 
     & .input-outer {
@@ -37,20 +37,19 @@
 
         & .input {
             width: 100%;
-            padding: 0;
-
+            padding: 10px 16px;
             outline: none;
             border: none;
             background-color: transparent;
             cursor: inherit;
 
-            color: #000;
+            color: dt.$additional;
             font-size: 14px;
-            font-weight: 500;
-            line-height: 24px;
+            font-weight: 400;
+            line-height: 17px;
 
             &::placeholder {
-                color: dt.$additional;
+                color: dt.$gray;
             }
         }
         & .input-icon {
@@ -60,14 +59,8 @@
     }
 }
 
-.input-orange {
-    border: 1px solid dt.$orange-50;
-
-    & .input-outer {
-        & .input {
-
-        }
-    }
+.input-green {
+    border: 1px solid dt.$green-100;
 }
 
 .input-icon-left {

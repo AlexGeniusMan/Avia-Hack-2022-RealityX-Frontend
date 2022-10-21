@@ -1,7 +1,7 @@
 import {forwardRef, useCallback, useMemo} from "react";
-import {getAllEvents} from "../../../../polyus/src/utils/getAllEvents";
 import styles from './Icon.module.scss'
 import {IconProps} from './IconProps'
+import {getAllEvents} from '../../utils/getAllEvents'
 
 export const Icon = forwardRef(({size = 24, color, type = "line", name, ...props}: IconProps, ref: any) => {
   const camelToKebab = useCallback((str: string) => {

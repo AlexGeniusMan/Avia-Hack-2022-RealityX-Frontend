@@ -1,16 +1,10 @@
 import {Action, AnyAction, applyMiddleware, combineReducers, legacy_createStore} from 'redux'
 import thunkMiddleware, {ThunkAction, ThunkDispatch} from 'redux-thunk'
 import authReducer from './auth-reducer'
-import cameraReducer from './camera-reducer'
-import logsReducer from './logs-reducer'
-import settingsReducer from './settings-reducer'
 
 
 let rootReducer  = combineReducers({
     auth: authReducer,
-    camera: cameraReducer,
-    logs: logsReducer,
-    settings: settingsReducer,
 });
 
 type RootReducerType = typeof rootReducer //(globalState: AppStateType) => AppStateType

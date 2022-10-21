@@ -1,6 +1,6 @@
-@use '../../../../../polyus/src/styles/design-tokens/index' as dt;
-@use '../../../../../polyus/src/styles/icons/index' as *;
-@use '../../../../../polyus/src/styles/helpers/loading' as *;
+@use '../../../styles/design-tokens' as dt;
+@use '../../../styles/icons' as *;
+@use '../../../styles/helpers/loading' as *;
 
 
 .button {
@@ -10,7 +10,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0 16px;
+    padding: 10px 16px;
     gap: 4px;
 
     width: fit-content;
@@ -20,29 +20,35 @@
 
     cursor: pointer;
 
-    font-weight: 500;
-    font-size: 12px;
-    line-height: dt.$typo-font-p-semi-bold-line-height;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
 
     text-align: center;
 
     transition: all 0.2s ease;
 
-    background: dt.$orange-20;
-    color: dt.$orange-100;
+    background: dt.$green-100;
+    color: #FFFFFF;
+
+    i{
+        color: #FFF;
+    }
+
+    &:hover{
+        background: dt.$green-100-hover;
+
+        i {
+            color: #fff;
+        }
+    }
+    &:active, &:disabled{
+        background: dt.$green-100-hover;
+    }
 
     i {
         transition: color 0.2s ease;
-        color: dt.$orange-100;
-    }
-
-    &:hover {
-        background: dt.$blue-20;
-        color: dt.$blue-100;
-
-        i {
-            color: dt.$blue-100;
-        }
+        color: #fff;
     }
 
     &:disabled {
@@ -71,23 +77,6 @@
     justify-content: center;
 }
 
-.button-green {
-    background: dt.$green-20;
-    color: dt.$green-100;
-
-    i {
-        color: dt.$green-100;
-    }
-
-    &:hover {
-        background: dt.$green-20;
-        color: dt.$green-100;
-
-        i {
-            color: dt.$green-100;
-        }
-    }
-}
 .button-blue {
     background: dt.$blue-20;
     color: dt.$blue-100;
@@ -96,13 +85,13 @@
         color: dt.$blue-100;
     }
 }
-.button-orange{
-    background: dt.$orange-20;
-    color: dt.$orange-100;
+.button-red{
+    background: dt.$red-20;
+    color: dt.$red-100;
 
     i {
         transition: color 0.2s ease;
-        color: dt.$orange-100;
+        color: dt.$red-100;
     }
 
 }

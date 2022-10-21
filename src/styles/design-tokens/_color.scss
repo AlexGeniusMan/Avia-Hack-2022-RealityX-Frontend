@@ -2,9 +2,10 @@
 $general-100: #131523;
 
 // Green colors
-$green-100: #2CAC0B;
-$green-50: rgba(44, 172, 11, 0.5);
-$green-20: rgba(44, 172, 11, 0.2);
+$green-100: #9EB941;
+$green-100-hover: #87A138;
+$green-50: rgba(158, 185, 65, 0.5);
+$green-20: rgba(158, 185, 65, 0.2);
 
 // Red colors
 $red-100: #9A1200;
@@ -12,15 +13,17 @@ $red-50: rgba(154, 18, 0, 0.5);
 $red-20: rgba(154, 18, 0, 0.2);
 
 // Blue colors
-$blue-100: #231FE2;
-$blue-50: rgba(35, 31, 226, 0.5);
-$blue-20: rgba(35, 31, 226, 0.2);
+$blue-100: #367ACB;
+$blue-50: rgba(54, 122, 203, 0.5);
+$blue-20: rgba(54, 122, 203, 0.2);
+
+// Other
+$black: #000;
+$additional: #424343;
+$gray: #D1D6E0;
+$light-gray: #EDEFF4;
 
 // Orange colors
 $orange-100: #D38B00;
 $orange-50: rgba(211, 139, 0, 0.5);
 $orange-20: rgba(211, 139, 0, 0.2);
-
-// Other
-$gray: #d9d9d9;
-$additional: #424343;

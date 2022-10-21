@@ -1,1 +1,43 @@
-@use '/src/styles/design-tokens' as dt;
+@use '../../../styles/design-tokens' as dt;
+
+.container {
+    min-height: 100vh;
+    background: #f9f9f9;
+    position: relative;
+
+    & .inner {
+        padding: 20px 16px;
+        max-width: 400px;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #D9D9D9;
+        border-radius: 8px;
+
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        transform: translateY(-50%);
+
+        & .title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: dt.$typo-font-p-medium-size;
+            font-weight: 700;
+            line-height: dt.$typo-font-p-medium-line-height;
+        }
+        & .input {
+            margin-bottom: 10px;
+            padding: 0 16px;
+
+            &:last-child {
+                margin-bottom: 28px;
+            }
+        }
+        & .button {
+            width: max-content;
+            margin: 20px auto 0;
+        }
+    }
+}
+
