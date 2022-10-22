@@ -15,12 +15,10 @@ export const useDragDrop = (props: DragDropProps) => {
     function dragStartHandler(e: React.DragEvent) {
         e.preventDefault()
         setDrag(true)
-        setFileError(false)
     }
     function dragLeaveHandler(e: React.DragEvent) {
         e.preventDefault()
         setDrag(false)
-        setFileError(false)
     }
     function onDropHandler(e: any) {
         e.preventDefault()
@@ -56,7 +54,6 @@ export const useDragDrop = (props: DragDropProps) => {
         if(!test.test(name)) {
             setFile(null)
             return false
-            // setFileError(true)
         }
         else return true
     }

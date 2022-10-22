@@ -5,7 +5,6 @@ import {useDragDrop} from './useDragDrop'
 import cl from 'classnames'
 import fileAdd from '../../assets/fileAdd.svg'
 import fileDone from '../../assets/fileDone.svg'
-import {Button} from '../Button/Button'
 
 const DragDrop = forwardRef((props: DragDropProps, ref: any) => {
     const {file, fileError, dragStartHandler, dragLeaveHandler, onDropHandler, drag, handleSubmit, handleFile} = useDragDrop(props)

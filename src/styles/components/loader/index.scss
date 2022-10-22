@@ -1,0 +1,6 @@
+@use '../../../styles/design-tokens' as dt;
+@use '../../../styles/helpers/loading' as *;
+
+.loader {
+    padding: 25px 90px 40px;
+}
