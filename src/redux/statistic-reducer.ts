@@ -43,6 +43,16 @@ const statisticReducer = (state = initialState, action: StatisticActionsType):In
                 ...state,
                 metricsTableData: action.payload.data,
             }
+        case 'AH/STATISTIC/CLEAR_DATA':
+            return {
+                ...state,
+                sessionId: 0 as number,
+                engineHistory: {} as EngineHistoryData,
+                engineHistoryPhases: [] as string[],
+                engineGraphData: [] as EngineHistoryGraphData[],
+                metricsData: {} as MetricsData,
+                metricsTableData: {} as any,
+            }
         default:
             return state;
     }
@@ -62,6 +72,8 @@ export const statisticActions = {
         ({type: 'AH/STATISTIC/METRICS_DATA_RECEIVED', payload: {data}} as const),
     setMetricsTableData: (data: any) =>
         ({type: 'AH/STATISTIC/METRICS_TABLE_DATA_RECEIVED', payload: {data}} as const),
+    clearData: () =>
+        ({type: 'AH/STATISTIC/CLEAR_DATA', payload: {}} as const),
 }
 
 export const sendFile = (file: File): ThunkType => {

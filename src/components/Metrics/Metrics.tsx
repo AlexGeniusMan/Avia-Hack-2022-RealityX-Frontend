@@ -24,7 +24,7 @@ const Metrics = () => {
     return (
         <div className={styles['metrics']}>
             <div className={styles['title']}>
-                <Title>Значение метрик по id_engine</Title>
+                <Title>Метрики</Title>
             </div>
             <div className={styles['tableContainer']}>
                 {

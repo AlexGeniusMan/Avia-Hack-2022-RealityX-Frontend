@@ -33,7 +33,7 @@ export const useParams = (props: any) => {
 
     useEffect(() => {
         if(props.currentPath === 'engine') {
-            if(props.engineHistory && currentPhase !== '') {
+            if(Object.keys(props.engineHistory).length > 0 && currentPhase !== '') {
                 setEngineItems(Object.keys(props.engineHistory[currentPhase]).map((item: string) => {
                     return {
                         label: item,
@@ -43,7 +43,7 @@ export const useParams = (props: any) => {
             }
         }
         else if (props.currentPath === 'metrics') {
-            if(props.metricsData && currentPhase !== '') {
+            if(Object.keys(props.metricsData).length > 0 && currentPhase !== '') {
                 setEngineItems(Object.keys(props.metricsData[currentPhase]).map((item: string) => {
                     return {
                         label: item,
@@ -53,11 +53,11 @@ export const useParams = (props: any) => {
             }
         }
 
-    }, [currentPhase, props.currentPath])
+    }, [currentPhase, props.currentPath, props.metricsData, props.engineHistory])
 
     useEffect(() => {
         if(props.currentPath === 'engine') {
-            if(props.engineHistory && currentPhase !== '' && currentEngineId !== '') {
+            if(Object.keys(props.engineHistory).length > 0 && currentPhase !== '' && currentEngineId !== '') {
                 setMetricItems((props.engineHistory[currentPhase][currentEngineId]).metrics.map((item: string) => {
                     return {
                         label: item,
@@ -67,7 +67,7 @@ export const useParams = (props: any) => {
             }
         }
         else if (props.currentPath === 'metrics') {
-            if(props.metricsData && currentPhase !== '' && currentEngineId !== '') {
+            if(Object.keys(props.metricsData).length > 0 && currentPhase !== '' && currentEngineId !== '') {
                 setDateItems((props.metricsData[currentPhase][currentEngineId]).map((item: string) => {
                     return {
                         label: getCurrentData(new Date(item)) +' '+ getCurrentTime(new Date(item)),
@@ -76,7 +76,7 @@ export const useParams = (props: any) => {
                 }))
             }
         }
-    }, [currentEngineId, props.currentPath])
+    }, [currentEngineId, props.currentPath, props.metricsData, props.engineHistory])
 
     useEffect(() => {
         if(props.engineHistory && currentPhase !== '' && currentMetric !== '' && currentEngineId !== '') {
@@ -94,6 +94,8 @@ export const useParams = (props: any) => {
         setCurrentPhase(item.label)
         setCurrentEngineId('')
         setCurrentMetric('')
+        setCurrentDate('')
+        setCurrentDateKey('')
     }
     const handleSelectEngine = (item: { label: string; key: string | number;
         event: React.MouseEvent<HTMLElement, MouseEvent> | React.KeyboardEvent<HTMLElement> }) => {

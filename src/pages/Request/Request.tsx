@@ -30,6 +30,10 @@ const Request = () => {
         else {
             setRedirect(true)
         }
+
+        return () => {
+            dispatch(statisticActions.clearData())
+        }
     }, [])
 
     if (sessionId === 0 && redirect) {

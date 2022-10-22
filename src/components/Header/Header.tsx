@@ -5,6 +5,7 @@ import {Button} from '../Button/Button'
 import {useDispatch} from 'react-redux'
 import {TypedDispatch} from '../../redux/redux-store'
 import {authActions} from '../../redux/auth-reducer'
+import {NavLink} from 'react-router-dom'
 
 const Header = () => {
     const dispatch = useDispatch<TypedDispatch>()
@@ -17,7 +18,9 @@ const Header = () => {
     return (
         <div className={styles['header']}>
             <div className={styles['inner']}>
-                <img src={logo} alt='RealityX' />
+                <NavLink to={'/'}>
+                    <img src={logo} alt='RealityX' />
+                </NavLink>
                 <Button onClick={handleClick} color={'green'}>Выйти</Button>
             </div>
         </div>
