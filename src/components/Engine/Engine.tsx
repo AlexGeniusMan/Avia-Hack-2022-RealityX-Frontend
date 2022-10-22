@@ -23,7 +23,7 @@ const Engine = () => {
                 <Title>История по двигателю</Title>
             </div>
             <div className={styles['content']}>
-                <Graph xAxes={'datetime'} yAxes={'value'} values={engineGraphData} name={'Значение'} yLabel={'Значение'} xLabel={'Время'} />
+                <Graph xAxes={'datetime'} yAxes={'value'} values={engineGraphData} name={'Значение метрики'} yLabel={'Значение метрики'} xLabel={'Время'} />
             </div>
         </div>
     )
