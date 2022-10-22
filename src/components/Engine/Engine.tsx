@@ -12,7 +12,7 @@ const Engine = () => {
     const engineGraphData = useSelector((state: AppStateType) => state.stat.engineGraphData)
 
     useEffect(() => {
-        if(!isNaN(sessionId)) {
+        if(!isNaN(sessionId) && sessionId !== 0) {
             dispatch(getEngineHistory(String(sessionId)))
         }
     }, [sessionId])

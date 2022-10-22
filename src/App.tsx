@@ -8,8 +8,6 @@ import {authActions} from './redux/auth-reducer'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType, TypedDispatch} from './redux/redux-store'
 import Preloader from './components/Preloader/Preloader'
-import {Dropdown} from './components/Dropdown/Dropdown'
-import DragDrop from './components/DragDrop/DragDrop'
 import RequestList from './pages/RequestList/RequestList'
 import CreateRequest from './pages/CreateRequest/CreateRequest'
 import Request from './pages/Request/Request'
@@ -37,7 +35,7 @@ const App = () => {
                 <Route path='/request' element={<Navigate to={'/'} />} />
                 <Route path='/request/*' element={<Request />} />
                 <Route path='/' element={<RequestList />} />
-                <Route path='*' element={<DragDrop />} />
+                <Route path='*' element={<Navigate to={'/'} />} />
             </Routes>
 
             <ToastContainer

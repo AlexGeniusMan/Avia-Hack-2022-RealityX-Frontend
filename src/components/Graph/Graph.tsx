@@ -22,7 +22,7 @@ const Graph:FC<MyProps> = ({values, xAxes, yAxes, name, title, color='green', yL
         <div ref={containerRef}>
             {/*Width of Y axis*/}
             {
-                values.length > 0 ?
+                values && values.length > 0 ?
             <>
                 <span className={styles['hidden']} ref={YBarRef}>{YMaxValue}</span>
                 <ResizableBox resizable={false} height={500} width={width}>

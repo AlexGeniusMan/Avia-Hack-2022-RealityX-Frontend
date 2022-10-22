@@ -53,7 +53,7 @@ export const sendFile = (file: File): ThunkType => {
         try {
             let data = await statisticAPI.sendFile(file)
             console.log('getEngineHistory', data)
-            dispatch(statisticActions.setSessionId(data.sessionId))
+            dispatch(statisticActions.setSessionId(data.session_id))
             dispatch(authActions.toggleIsFetching(false))
         }
         catch (e: any) {

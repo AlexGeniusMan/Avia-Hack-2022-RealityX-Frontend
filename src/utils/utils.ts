@@ -41,7 +41,7 @@ export const errorsHandler = (e: any, dispatch: Dispatch) => {
     }
 }
 
-export const getEndPath = (path: string) => {
+export const getEndPath = (path: string, number = 2) => {
     const cutPath = path.split('/')
-    return cutPath[cutPath.length - 2]
+    return cutPath[cutPath.length - number]
 }

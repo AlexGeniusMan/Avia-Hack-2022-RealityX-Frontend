@@ -3,7 +3,7 @@ import axios from "axios";
 import {EngineHistoryData, EngineHistoryGraphData} from '../types/Types'
 
 export type sendFileResponseType = {
-    sessionId: number
+    session_id: number
 }
 export type getEngineHistoryResponseType = {
     data: EngineHistoryData

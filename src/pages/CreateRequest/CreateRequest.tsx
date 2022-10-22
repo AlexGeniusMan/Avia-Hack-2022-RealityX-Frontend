@@ -35,7 +35,7 @@ const CreateRequest = () => {
     }
 
     return (
-        <SkyLayout>
+        <SkyLayout preloader={false}>
             {
                 isFetch ?
                 <SkyBlock title={'Обработка заявки'}>

@@ -12,12 +12,12 @@ import smallLeft from '../../assets/Login/SmallLeftCloud.svg'
 import smallRight from '../../assets/Login/SmallRightCloud.svg'
 import logo from '../../assets/Login/WhiteLogo.svg'
 
-const SkyLayout:FC<MyProps> = ({children, className}) => {
+const SkyLayout:FC<MyProps> = ({children, className, preloader = true}) => {
     const isFetch = useSelector((state:AppStateType) => state.auth.isFetch)
 
     return (
         <div className={cl(styles['container'], className)}>
-            {isFetch && <Preloader />}
+            {(preloader && isFetch) && <Preloader />}
             <img className={cl(styles['background'], styles['big-cloud'])} src={bigCloud} alt='' />
             <img className={cl(styles['background'], styles['plane'])} src={plane} alt='' />
             <img className={cl(styles['background'], styles['medium-right'])} src={mediumRight} alt='' />
@@ -36,4 +36,5 @@ export default SkyLayout
 type MyProps = {
     children: string | React.ReactNode
     className?: string
+    preloader?: boolean
 }
