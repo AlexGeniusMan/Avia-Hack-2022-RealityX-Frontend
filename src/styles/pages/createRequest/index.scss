@@ -1,0 +1,26 @@
+@use '../../../styles/design-tokens' as dt;
+
+.drag {
+    margin-bottom: 20px;
+    padding: 0 16px;
+}
+
+.button {
+    margin: 0 auto 10px;
+    width: 100%;
+}
+
+.link {
+    display: block;
+    user-select: none;
+    padding-bottom: 8px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-decoration-line: underline;
+    color: dt.$general-100;
+    opacity: .3;
+
+    text-align: center;
+}

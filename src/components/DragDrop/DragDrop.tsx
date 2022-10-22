@@ -17,8 +17,9 @@ const DragDrop = forwardRef((props: DragDropProps, ref: any) => {
              onDragOver={e => dragStartHandler(e)}
              onDrop={e => onDropHandler(e)}
         >
+            <label htmlFor='file'>
             <h2 className={styles['title']}>Загрузка файла</h2>
-            <div>
+            <input accept={'.csv'} onChange={handleFile} className={styles['input']} id={'file'} type='file' />
                 <div className={cl(styles['area'], styles['drop-area'])}>
                     <img src={(file && file.name) ? fileDone : fileAdd} className={styles['file-icon']} alt='file-icon' />
                     {
@@ -29,20 +30,22 @@ const DragDrop = forwardRef((props: DragDropProps, ref: any) => {
                             </div>
                             :
                             <>
+                                <div className={styles['text']}>
+                                    Перетащите файл в область загрузки
+                                </div>
                                 <div className={styles['format']}>
-                                    Перетащите файл в область или выберите файл на компьютере
+                                    Поддерживается формат .csv
                                 </div>
-                                <div className={styles['button']}>
-                                    <input onChange={handleFile} className={styles['input']} id={'file'} type='file' />
-                                    <Button className={styles['button-inner']} color={'green'}>
-                                        <label htmlFor='file'>
-                                            Выбрать файл
-                                        </label>
-                                    </Button>
-                                </div>
+                                {/*<div className={styles['button']}>*/}
+
+                                {/*    <Button className={styles['button-inner']} color={'green'}>*/}
+                                {/*        <label htmlFor='file'>*/}
+                                {/*            Выбрать файл*/}
+                                {/*        </label>*/}
+                                {/*    </Button>*/}
+                                {/*</div>*/}
                             </>
                     }
-
                     {
                         fileError &&
                         <div className={styles['fileError']}>
@@ -50,7 +53,7 @@ const DragDrop = forwardRef((props: DragDropProps, ref: any) => {
                         </div>
                     }
                 </div>
-            </div>
+            </label>
         </div>
     )
 })

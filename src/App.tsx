@@ -10,6 +10,8 @@ import {AppStateType, TypedDispatch} from './redux/redux-store'
 import Preloader from './components/Preloader/Preloader'
 import {Dropdown} from './components/Dropdown/Dropdown'
 import DragDrop from './components/DragDrop/DragDrop'
+import RequestList from './pages/RequestList/RequestList'
+import CreateRequest from './pages/CreateRequest/CreateRequest'
 
 const App = () => {
     const dispatch = useDispatch<TypedDispatch>()
@@ -37,6 +39,8 @@ const App = () => {
         <>
             <Routes>
                 <Route path='/login' element={<Login />} />
+                <Route path='/create' element={<CreateRequest />} />
+                <Route path='/' element={<RequestList />} />
                 <Route path='*' element={<DragDrop />} />
             </Routes>
             <ToastContainer

@@ -2,6 +2,7 @@ import {DragDropProps} from './DragDropProps'
 import {useDispatch} from 'react-redux'
 import {TypedDispatch} from '../../redux/redux-store'
 import React, {useState} from 'react'
+import {errorNotify} from '../../utils/utils'
 
 export const useDragDrop = (props: DragDropProps) => {
     const dispatch = useDispatch<TypedDispatch>()
@@ -24,23 +25,40 @@ export const useDragDrop = (props: DragDropProps) => {
     function onDropHandler(e: any) {
         e.preventDefault()
         let files = [...e.dataTransfer.files]
-        setFile(files[0])
+        if(files && files.length > 0) {
+            if(matchFileCsv(files[0].name)) {
+                setFile(files[0])
+                if(props.handleFile) {
+                    props.handleFile(files[0])
+                }
+            }
+            else {
+                errorNotify('Недопустимый формат файла!')
+            }
+        }
         setDrag(false)
         // matchFileTxt(files[0].name)
     }
     function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
-        if(e.target.files) {
-            setFile(e.target.files[0])
+        const files = e.target.files
+        if(files && files.length > 0) {
+            if(matchFileCsv(files[0].name)) {
+                setFile(files[0])
+                if(props.handleFile) {
+                    props.handleFile(files[0])
+                }
+            }
         }
-        // matchFileTxt(files[0].name)
     }
-    function matchFileTxt(name: string) {
-        let test = /^.*\.txt$/gm
+    function matchFileCsv(name: string) {
+        let test = /^.*\.csv$/gm
 
         if(!test.test(name)) {
             setFile(null)
-            setFileError(true)
+            return false
+            // setFileError(true)
         }
+        else return true
     }
     function handleSubmit() {
         if(file && file.name) {
