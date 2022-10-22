@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType, TypedDispatch} from './redux/redux-store'
 import Preloader from './components/Preloader/Preloader'
 import {Dropdown} from './components/Dropdown/Dropdown'
+import DragDrop from './components/DragDrop/DragDrop'
 
 const App = () => {
     const dispatch = useDispatch<TypedDispatch>()
@@ -36,7 +37,7 @@ const App = () => {
         <>
             <Routes>
                 <Route path='/login' element={<Login />} />
-                <Route path='*' element={<Dropdown items={items} />} />
+                <Route path='*' element={<DragDrop />} />
             </Routes>
             <ToastContainer
                 position="bottom-right"
