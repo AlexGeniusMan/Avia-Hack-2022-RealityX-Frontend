@@ -29,8 +29,8 @@ const SelectComponent = () => {
                     return (option?.value as string).includes(inputValue);
                 }}
             >
-                {['1', '2', '3', '1', '2', '3','1', '2', '3', '1', '2', '3'].map((i) => (
-                    <Option value={i} key={i}>
+                {['1', '2', '3', '1', '2', '3','1', '2', '3', '1', '2', '3'].map((i, index) => (
+                    <Option value={i} key={index}>
                         {i}
                     </Option>
                 ))}

@@ -2,9 +2,13 @@
 
 .header {
     width: 100%;
-    padding: 10px 80px;
     background: #fff;
+    padding: 10px 80px;
 
-    @include dt.flexible();
-    justify-content: space-between;
+    & .inner {
+        max-width: 1550px;
+        margin: 0 auto;
+        @include dt.flexible();
+        justify-content: space-between;
+    }
 }

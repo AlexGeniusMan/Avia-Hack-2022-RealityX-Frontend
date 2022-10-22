@@ -1,9 +1,14 @@
 @use '../../../styles/design-tokens' as dt;
 
 .metrics {
+    padding: 16px;
+
+    & .title {
+        padding: 16px 24px;
+    }
     & .tableContainer {
         margin-bottom: 15px;
-        padding: 12px 24px;
+        padding: 8px 24px;
 
         & .table {
             max-height: 700px;

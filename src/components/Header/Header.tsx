@@ -16,8 +16,10 @@ const Header = () => {
 
     return (
         <div className={styles['header']}>
-            <img src={logo} alt='RealityX' />
-            <Button onClick={handleClick} color={'green'}>Выйти</Button>
+            <div className={styles['inner']}>
+                <img src={logo} alt='RealityX' />
+                <Button onClick={handleClick} color={'green'}>Выйти</Button>
+            </div>
         </div>
     )
 }
