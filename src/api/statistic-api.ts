@@ -8,11 +8,9 @@ export type sendFileResponseType = {
 export type getEngineHistoryResponseType = {
     data: EngineHistoryData
 }
-
 export type getEngineGraphResponseType = {
     data: EngineHistoryGraphData[]
 }
-
 export type getMetricsResponseType = {
     data: MetricsData
 }
@@ -27,6 +25,15 @@ export const statisticAPI = {
         data.append('file', file)
 
         return axios.post<sendFileResponseType>(baseURL + `api/app/predict`, data,{
+            headers: {
+                'Authorization': `${accessToken}`
+            }
+        })
+            .then((response) => response.data)
+    },
+    getSessions() {
+        const accessToken = 'Bearer ' + localStorage.getItem('access')
+        return axios.get<number[]>(baseURL + `api/app/sessions`,{
             headers: {
                 'Authorization': `${accessToken}`
             }

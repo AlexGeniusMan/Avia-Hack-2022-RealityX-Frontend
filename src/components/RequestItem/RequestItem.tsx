@@ -8,7 +8,7 @@ const RequestItem:FC<RequestProps> = (props) => {
     const {classes, status} = useRequest(props)
 
     return (
-        <NavLink to={'/'} className={classes}>
+        <NavLink to={`/request/engine/${props.number}`} className={classes}>
             <div className={styles['info']}>
                 <div className={styles['number']}>Заявка №{props.number}</div>
                 <div className={styles['date']}>{props.date}</div>

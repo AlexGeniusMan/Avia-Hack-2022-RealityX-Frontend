@@ -12,6 +12,7 @@ const initialState = {
     engineGraphData: [] as EngineHistoryGraphData[],
     metricsData: {} as MetricsData,
     metricsTableData: {} as any,
+    sessions: [] as number[],
 }
 
 const statisticReducer = (state = initialState, action: StatisticActionsType):InitialStateType  => {
@@ -20,6 +21,11 @@ const statisticReducer = (state = initialState, action: StatisticActionsType):In
             return {
                 ...state,
                 sessionId: action.payload.sessionId,
+            }
+        case 'AH/STATISTIC/SESSIONS_RECEIVED':
+            return {
+                ...state,
+                sessions: action.payload.sessions,
             }
         case 'AH/STATISTIC/ENGINE_HISTORY_RECEIVED':
             return {
@@ -64,6 +70,8 @@ type ThunkType = BaseThunkType<StatisticActionsType | AuthActionsType>
 export const statisticActions = {
     setSessionId: (sessionId: number) =>
         ({type: 'AH/STATISTIC/SESSION_ID_RECEIVED', payload: {sessionId}} as const),
+    setSessions: (sessions: number[]) =>
+        ({type: 'AH/STATISTIC/SESSIONS_RECEIVED', payload: {sessions}} as const),
     setEngineHistory: (data: EngineHistoryData) =>
         ({type: 'AH/STATISTIC/ENGINE_HISTORY_RECEIVED', payload: {data}} as const),
     setEngineGraphData: (data: EngineHistoryGraphData[]) =>
@@ -87,6 +95,22 @@ export const sendFile = (file: File): ThunkType => {
         }
         catch (e: any) {
             console.error('getEngineHistory', e.response)
+            dispatch(authActions.toggleIsFetching(false))
+            errorNotify()
+        }
+    }
+}
+export const getSessions = (): ThunkType => {
+    return async (dispatch) => {
+        dispatch(authActions.toggleIsFetching(true))
+        try {
+            let data = await statisticAPI.getSessions()
+            console.log('getSessions', data)
+            dispatch(statisticActions.setSessions(data))
+            dispatch(authActions.toggleIsFetching(false))
+        }
+        catch (e: any) {
+            console.error('getSessions', e.response)
             dispatch(authActions.toggleIsFetching(false))
             errorNotify()
         }
