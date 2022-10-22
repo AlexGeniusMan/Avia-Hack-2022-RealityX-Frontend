@@ -9,7 +9,7 @@ export type LoginResponseType = {
 export const authAPI = {
     login(username: string, password:string) {
         const data = new FormData()
-        data.append('username', username)
+        data.append('email', username)
         data.append('password', password)
 
         return axios.post<LoginResponseType>
@@ -18,7 +18,7 @@ export const authAPI = {
     },
     register(email: string, password: string) {
         const data = new FormData()
-        data.append('username', email)
+        data.append('email', email)
         data.append('password', password)
         return axios.post<{id: number}>(baseURL + `api/auth/users/`, data)
             .then((response) => response.data)
