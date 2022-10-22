@@ -1,0 +1,9 @@
+@use '../../../styles/design-tokens' as dt;
+
+.engine {
+    padding: 16px;
+
+    & .title {
+        padding: 16px 24px;
+    }
+}

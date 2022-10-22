@@ -9,6 +9,8 @@ import {Route, Routes} from 'react-router-dom'
 import {compose} from 'redux'
 import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 import Metrics from '../../components/Metrics/Metrics'
+import Engine from '../../components/Engine/Engine'
+import EngineType from '../../components/EngineType/EngineType'
 
 const Request = () => {
     return (
@@ -27,8 +29,8 @@ const Request = () => {
                         </div>
                         <div className={styles['content']}>
                             <Routes>
-                                <Route path='engine' element={<div>engine</div>} />
-                                <Route path='engine_type' element={<div>engine_type</div>} />
+                                <Route path='engine' element={<Engine />} />
+                                <Route path='engine_type' element={<EngineType />} />
                                 <Route path='metrics' element={<Metrics />} />
                             </Routes>
                         </div>
