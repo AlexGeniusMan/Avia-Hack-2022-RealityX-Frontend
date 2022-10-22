@@ -19,59 +19,59 @@ const initialState = {
 
 const authReducer = (state = initialState, action: AuthActionsType):InitialStateType  => {
     switch (action.type) {
-        case 'PH/AUTH/LOGIN':
+        case 'AH/AUTH/LOGIN':
             return {
                 ...state,
                 isAuth: action.payload.isAuth,
             }
-        case 'PH/AUTH/LOGOUT':
+        case 'AH/AUTH/LOGOUT':
             return {
                 ...state,
                 isAuth: false,
                 isLogin: false,
                 isRegister: false,
             }
-        case 'PH/AUTH/IS_USER_LOGIN': //User is login
+        case 'AH/AUTH/IS_USER_LOGIN': //User is login
             return {
                 ...state,
                 isLogin: action.payload.isLogin,
             }
-        case 'PH/AUTH/IS_ADMIN_INITIALIZE': //Initializing admin
+        case 'AH/AUTH/IS_ADMIN_INITIALIZE': //Initializing admin
             return {
                 ...state,
                 isAdminInitialize: action.payload.isAdminInitialize,
             }
-        case 'PH/AUTH/SET_LOGIN_ERROR': //Incorrect login or password
+        case 'AH/AUTH/SET_LOGIN_ERROR': //Incorrect login or password
             return {
                 ...state,
                 isLoginError: action.payload.isLoginError,
             }
-        case 'PH/AUTH/SET_REGISTER_EMAIL_ERROR': //Email is already exists
+        case 'AH/AUTH/SET_REGISTER_EMAIL_ERROR': //Email is already exists
             return {
                 ...state,
                 isRegisterEmailError: action.payload.isRegisterEmailError,
             }
-        case 'PH/AUTH/SET_REGISTER_PASSWORD_ERROR': //Password is too common, password is entirely numeric
+        case 'AH/AUTH/SET_REGISTER_PASSWORD_ERROR': //Password is too common, password is entirely numeric
             return {
                 ...state,
                 isRegisterPasswordError: action.payload.isRegisterPasswordError,
             }
-        case 'PH/AUTH/SET_INITIALIZE': //initialize project
+        case 'AH/AUTH/SET_INITIALIZE': //initialize project
             return {
                 ...state,
                 isInitialize: action.payload.isInitialize,
             }
-        case 'PH/AUTH/SET_IS_USER_REGISTER': //User is register
+        case 'AH/AUTH/SET_IS_USER_REGISTER': //User is register
             return {
                 ...state,
                 isRegister: action.payload.isRegister,
             }
-        case 'PH/AUTH/SET_ACTIVATE_ERROR': //invalid token or uid
+        case 'AH/AUTH/SET_ACTIVATE_ERROR': //invalid token or uid
             return {
                 ...state,
                 isActivateError: action.payload.isActivateError,
             }
-        case 'PH/AUTH/TOGGLE_IS_FETCHING': //invalid token or uid
+        case 'AH/AUTH/TOGGLE_IS_FETCHING': //invalid token or uid
             return {
                 ...state,
                 isFetch: action.payload.isFetch,
@@ -85,27 +85,27 @@ export type AuthActionsType = InferActionsTypes<typeof authActions>
 
 export const authActions = {
     setIsAuth: (isAuth: boolean) =>
-        ({type: 'PH/AUTH/LOGIN', payload: {isAuth}} as const),
+        ({type: 'AH/AUTH/LOGIN', payload: {isAuth}} as const),
     logout: () =>
-        ({type: 'PH/AUTH/LOGOUT', payload: {}} as const),
+        ({type: 'AH/AUTH/LOGOUT', payload: {}} as const),
     setIsUserLogin: (isLogin: boolean) =>
-        ({type: 'PH/AUTH/IS_USER_LOGIN', payload: {isLogin}} as const),
+        ({type: 'AH/AUTH/IS_USER_LOGIN', payload: {isLogin}} as const),
     setIsAdminInitialize: (isAdminInitialize: boolean) =>
-        ({type: 'PH/AUTH/IS_ADMIN_INITIALIZE', payload: {isAdminInitialize}} as const),
+        ({type: 'AH/AUTH/IS_ADMIN_INITIALIZE', payload: {isAdminInitialize}} as const),
     setLoginError: (isLoginError: boolean) =>
-        ({type: 'PH/AUTH/SET_LOGIN_ERROR', payload: {isLoginError}} as const),
+        ({type: 'AH/AUTH/SET_LOGIN_ERROR', payload: {isLoginError}} as const),
     setIsInitialize: (isInitialize: boolean) =>
-        ({type: 'PH/AUTH/SET_INITIALIZE', payload: {isInitialize}} as const),
+        ({type: 'AH/AUTH/SET_INITIALIZE', payload: {isInitialize}} as const),
     setIsRegister: (isRegister: boolean) =>
-        ({type: 'PH/AUTH/SET_IS_USER_REGISTER', payload: {isRegister}} as const),
+        ({type: 'AH/AUTH/SET_IS_USER_REGISTER', payload: {isRegister}} as const),
     setRegisterEmailError: (isRegisterEmailError: boolean) =>
-        ({type: 'PH/AUTH/SET_REGISTER_EMAIL_ERROR', payload: {isRegisterEmailError}} as const),
+        ({type: 'AH/AUTH/SET_REGISTER_EMAIL_ERROR', payload: {isRegisterEmailError}} as const),
     setRegisterPasswordError: (isRegisterPasswordError: boolean) =>
-        ({type: 'PH/AUTH/SET_REGISTER_PASSWORD_ERROR', payload: {isRegisterPasswordError}} as const),
+        ({type: 'AH/AUTH/SET_REGISTER_PASSWORD_ERROR', payload: {isRegisterPasswordError}} as const),
     setIsActivateError: (isActivateError: boolean) =>
-        ({type: 'PH/AUTH/SET_ACTIVATE_ERROR', payload: {isActivateError}} as const),
+        ({type: 'AH/AUTH/SET_ACTIVATE_ERROR', payload: {isActivateError}} as const),
     toggleIsFetching: (isFetch: boolean) =>
-        ({type: 'PH/AUTH/TOGGLE_IS_FETCHING', payload: {isFetch}} as const),
+        ({type: 'AH/AUTH/TOGGLE_IS_FETCHING', payload: {isFetch}} as const),
 }
 
 type ThunkType = BaseThunkType<AuthActionsType>
