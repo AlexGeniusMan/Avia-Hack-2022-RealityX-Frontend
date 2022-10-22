@@ -6,6 +6,9 @@ import Block from '../../components/Block/Block'
 import Menu from '../../components/Menu/Menu'
 import Params from '../../components/Params/Params'
 import {Route, Routes} from 'react-router-dom'
+import {compose} from 'redux'
+import {withAuthRedirect} from '../../hoc/withAuthRedirect'
+import Metrics from '../../components/Metrics/Metrics'
 
 const Request = () => {
     return (
@@ -26,7 +29,7 @@ const Request = () => {
                             <Routes>
                                 <Route path='engine' element={<div>engine</div>} />
                                 <Route path='engine_type' element={<div>engine_type</div>} />
-                                <Route path='metrics' element={<div>metrics</div>} />
+                                <Route path='metrics' element={<Metrics />} />
                             </Routes>
                         </div>
                     </div>
@@ -36,4 +39,6 @@ const Request = () => {
     )
 }
 
-export default Request
+export default compose(
+    withAuthRedirect
+)(Request)

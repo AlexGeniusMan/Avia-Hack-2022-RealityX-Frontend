@@ -19,11 +19,11 @@
             .params {
                 padding: 12px 16px;
             }
-
-            & .content {
-                width: 100%;
-                position: relative;
-            }
+        }
+        & .content {
+            width: 100%;
+            position: relative;
+            border-left: 1px solid dt.$gray;
         }
 
     }

@@ -8,6 +8,8 @@ import {NavLink} from 'react-router-dom'
 import Loader from '../../components/Loader/Loader'
 import {useSelector} from 'react-redux'
 import {AppStateType} from '../../redux/redux-store'
+import {compose} from 'redux'
+import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 
 const CreateRequest = () => {
     const [file, setFile] = useState<File | null>(null)
@@ -43,4 +45,6 @@ const CreateRequest = () => {
     )
 }
 
-export default CreateRequest
+export default compose(
+    withAuthRedirect
+)(CreateRequest)

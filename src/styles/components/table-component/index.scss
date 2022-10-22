@@ -1,0 +1,23 @@
+@use '../../../styles/design-tokens' as dt;
+
+.table {
+    width: 100%;
+
+    & table{
+        table-layout: auto;
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 10px;
+        color: dt.$additional;
+    }
+    & th{
+        text-align: left;
+
+        font-style: dt.$typo-font-p-medium-style;
+        font-weight: dt.$typo-font-p-medium-weight;
+        font-size: dt.$typo-font-p-medium-size;
+        line-height: dt.$typo-font-p-medium-line-height;
+    }
+
+
+}

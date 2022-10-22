@@ -1,0 +1,12 @@
+@use '../../../styles/design-tokens' as dt;
+
+.container {
+    color: #000;
+
+    text-align: center;
+
+    font-style: dt.$typo-font-p-semi-bold-style;
+    font-weight: dt.$typo-font-p-semi-bold-weight;
+    font-size: dt.$typo-font-p-semi-bold-size;
+    line-height: dt.$typo-font-p-semi-bold-line-height;
+}

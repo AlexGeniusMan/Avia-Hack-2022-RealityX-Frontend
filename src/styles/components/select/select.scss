@@ -176,7 +176,7 @@
 }
 
 .rc-select-dropdown {
-    border: 1px solid green;
+    border: 1px solid #9EB941;
     min-height: 100px;
     position: absolute;
     background: #fff
@@ -189,7 +189,8 @@
 .rc-select-item {
     font-size: 14px;
     line-height: 1.5;
-    padding: 4px 16px
+    padding: 4px 16px;
+    cursor: pointer;
 }
 
 .rc-select-item-group {
@@ -214,7 +215,7 @@
 }
 
 .rc-select-item-option-active {
-    background: #ddd
+    background-color: rgba(158, 185, 65, 0.2);
 }
 
 .rc-select-item-option-disabled {

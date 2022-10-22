@@ -5,6 +5,8 @@ import SkyLayout from '../../components/SkyLayout/SkyLayout'
 import SkyBlock from '../../components/SkyBlock/SkyBlock'
 import RequestItem from '../../components/RequestItem/RequestItem'
 import {Button} from '../../components/Button/Button'
+import {withAuthRedirect} from '../../hoc/withAuthRedirect'
+import {compose} from 'redux'
 
 const RequestList = () => {
     return (
@@ -29,4 +31,6 @@ const RequestList = () => {
     )
 }
 
-export default RequestList
+export default compose(
+    withAuthRedirect
+)(RequestList)
