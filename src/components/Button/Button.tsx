@@ -1,7 +1,7 @@
 import React, {FC, forwardRef, ReactNode, useMemo} from 'react'
 import {useButton} from "./useButton";
 import {ButtonProps} from "./ButtonProps";
-import Icon from '../Icon/Icon'
+import Icon from '../Icon/icon'
 import "../../styles/icons/_index.scss";
 import {getAllEvents} from '../../utils/getAllEvents'
 

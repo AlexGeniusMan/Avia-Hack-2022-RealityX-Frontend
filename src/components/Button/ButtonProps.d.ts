@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from '../Icon/Icon'
+import Icon from '../Icon/icon'
 import {ClickableObjectMini, DefaultParams} from '../../types/Types'
 
 export interface ButtonProps extends DefaultParams, ClickableObjectMini {

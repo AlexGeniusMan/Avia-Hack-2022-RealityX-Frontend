@@ -1,7 +1,7 @@
 import {forwardRef, useCallback, useMemo} from "react";
 import styles from './Icon.module.scss'
-import {IconProps} from './IconProps'
 import {getAllEvents} from '../../utils/getAllEvents'
+import {IconProps} from './IconProps'
 
 export const Icon = forwardRef(({size = 24, color, type = "line", name, ...props}: IconProps, ref: any) => {
   const camelToKebab = useCallback((str: string) => {
