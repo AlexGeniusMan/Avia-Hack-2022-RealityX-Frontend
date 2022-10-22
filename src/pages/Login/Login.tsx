@@ -4,6 +4,7 @@ import {Navigate} from 'react-router-dom'
 import {AppStateType, TypedDispatch} from '../../redux/redux-store'
 import {useDispatch, useSelector} from 'react-redux'
 import cl from 'classnames'
+import {motion} from "framer-motion";
 import Preloader from '../../components/Preloader/Preloader'
 import {Input} from '../../components/Input/Input'
 import {Button} from '../../components/Button/Button'
@@ -32,10 +33,30 @@ const Login = () => {
         dispatch(login(email, password))
     }
 
+    const animations = {
+        hidden: {
+            opacity: 0,
+            x:0,
+            y:50,
+        },
+        visible: {
+            opacity: 1,
+            x:0,
+            y:0,
+        }
+    }
+
     return (
         <div className={styles['container']}>
             {isFetch && <Preloader />}
-            <div className={styles['inner']}>
+            <img className={cl(styles['background'], styles['big-cloud'])} src={bigCloud} alt='' />
+            <img className={cl(styles['background'], styles['plane'])} src={plane} alt='' />
+            <img className={cl(styles['background'], styles['medium-right'])} src={mediumRight} alt='' />
+            <img className={cl(styles['background'], styles['medium-left'])} src={mediumLeft} alt='' />
+            <img className={cl(styles['background'], styles['small-left'])} src={smallLeft} alt='' />
+            <img className={cl(styles['background'], styles['small-right'])} src={smallRight} alt='' />
+            <motion.div style={{originY: '-50%'}} variants={animations} initial="hidden" animate="visible"
+                        transition={{ duration: 1 }} className={styles['inner']}>
                 <h2 className={styles['title']}>Авторизация</h2>
                 <div className={styles['input']}>
                     <Input color={'green'} placeholder={'realityxTeam@pochta.dom'} defaultValue={email} title={'Логин'} onChange={(e) => setEmail(e.target.value)} />
@@ -46,14 +67,7 @@ const Login = () => {
                 <div className={styles['button']}>
                     <Button color={'green'} onClick={handleSubmit}>Войти</Button>
                 </div>
-            </div>
-            <img className={cl(styles['background'], styles['big-cloud'])} src={bigCloud} alt='' />
-            <img className={cl(styles['background'], styles['plane'])} src={plane} alt='' />
-            <img className={cl(styles['background'], styles['medium-right'])} src={mediumRight} alt='' />
-            <img className={cl(styles['background'], styles['medium-left'])} src={mediumLeft} alt='' />
-            <img className={cl(styles['background'], styles['small-left'])} src={smallLeft} alt='' />
-            <img className={cl(styles['background'], styles['small-right'])} src={smallRight} alt='' />
-
+            </motion.div>
         </div>
     )
 }
