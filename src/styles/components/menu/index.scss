@@ -1,0 +1,47 @@
+@use '../../../styles/design-tokens' as dt;
+
+.title {
+    padding: 8px;
+}
+
+.link {
+    width: 311px;
+    padding: 12px 16px;
+    display: block;
+    box-sizing: border-box;
+    user-select: none;
+    cursor: pointer;
+    background-color: #fff;
+    transition: all .2s ease;
+    color: dt.$additional;
+    outline: none;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-family: dt.$typo-font-p-medium-family;
+    font-style: dt.$typo-font-p-medium-style;
+    font-weight: dt.$typo-font-p-regular-weight;
+    font-size: 14px;
+    line-height: 17px;
+
+    &:nth-child(2) {
+        border-radius: 6px 6px 0 0;
+    }
+
+    &:last-child {
+        border-radius: 0 0 6px 6px;
+    }
+
+    &:only-child {
+        border-radius: 6px;
+    }
+    &:not(.dropdown-disabled):hover, &:not(.dropdown-disabled):focus {
+        background-color: dt.$green-20;
+    }
+}
+
+.active {
+    background-color: dt.$green-20;
+}

@@ -1,0 +1,8 @@
+@use '../../../styles/design-tokens' as dt;
+
+.container {
+    width: 100%;
+    position: relative;
+    min-height: 100vh;
+    background: #EDEFF4;
+}

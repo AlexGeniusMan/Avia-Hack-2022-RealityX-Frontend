@@ -24,7 +24,7 @@ export const Dropdown=forwardRef((props: DropdownProps, ref: any) => {
         <div className={state.classes} onClick={() => state.handleOpen(!state.isOpen)} >
           <LocalIcon icon={props.icon} />
           <span className={`${styles['dropdown-label']} ${!state.activeLabel ? styles['dropdown-label-placeholder'] : ''}`}>
-            {state.activeLabel || 'Список вариантов'}
+            {state.activeLabel || (props.placeholder || 'Список вариантов')}
           </span>
           <span className={`${styles['dropdown-icon']} ${state.isOpen ? styles['dropdown-icon-active'] : ''}`}>
             <Icon className={styles['dropdown-icon-active']} name={'ri-arrow-down-s-line'} size={24} />

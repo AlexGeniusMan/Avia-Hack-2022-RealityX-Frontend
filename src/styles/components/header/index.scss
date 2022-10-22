@@ -1,0 +1,10 @@
+@use '../../../styles/design-tokens' as dt;
+
+.header {
+    width: 100%;
+    padding: 10px 80px;
+    background: #fff;
+
+    @include dt.flexible();
+    justify-content: space-between;
+}

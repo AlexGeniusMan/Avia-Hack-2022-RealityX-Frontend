@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import './App.scss'
 import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from 'react-toastify'
-import {Route, Routes} from 'react-router-dom'
+import {Navigate, Route, Routes} from 'react-router-dom'
 import Login from './pages/Login/Login'
 import {authActions} from './redux/auth-reducer'
 import {useDispatch, useSelector} from 'react-redux'
@@ -12,6 +12,7 @@ import {Dropdown} from './components/Dropdown/Dropdown'
 import DragDrop from './components/DragDrop/DragDrop'
 import RequestList from './pages/RequestList/RequestList'
 import CreateRequest from './pages/CreateRequest/CreateRequest'
+import Request from './pages/Request/Request'
 
 const App = () => {
     const dispatch = useDispatch<TypedDispatch>()
@@ -40,6 +41,8 @@ const App = () => {
             <Routes>
                 <Route path='/login' element={<Login />} />
                 <Route path='/create' element={<CreateRequest />} />
+                <Route path='/request' element={<Navigate to={'/request/engine'} />} />
+                <Route path='/request/*' element={<Request />} />
                 <Route path='/' element={<RequestList />} />
                 <Route path='*' element={<DragDrop />} />
             </Routes>

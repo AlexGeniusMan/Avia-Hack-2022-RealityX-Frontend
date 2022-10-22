@@ -38,9 +38,8 @@
 }
 
 .dropdown-label {
-    width: fit-content;
+    width: 100%;
     min-width: 146px;
-    max-width: 331px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -48,6 +47,7 @@
 
 .dropdown-menu {
     display: none;
+    z-index: 5;
     position: absolute;
     right: 0;
     left: 0;
@@ -63,6 +63,7 @@
 }
 
 .dropdown-item {
+
     box-sizing: border-box;
     user-select: none;
     cursor: pointer;
