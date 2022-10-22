@@ -3,10 +3,17 @@ import styles from './Login.module.scss'
 import {Navigate} from 'react-router-dom'
 import {AppStateType, TypedDispatch} from '../../redux/redux-store'
 import {useDispatch, useSelector} from 'react-redux'
+import cl from 'classnames'
 import Preloader from '../../components/Preloader/Preloader'
 import {Input} from '../../components/Input/Input'
 import {Button} from '../../components/Button/Button'
 import {login} from '../../redux/auth-reducer'
+import smallRight from '../../assets/Login/SmallRightCloud.svg'
+import smallLeft from '../../assets/Login/SmallLeftCloud.svg'
+import mediumLeft from '../../assets/Login/MediumLeftCloud.svg'
+import mediumRight from '../../assets/Login/MediumRightCLoud.svg'
+import bigCloud from '../../assets/Login/BigCloud.svg'
+import plane from '../../assets/Login/LoginPlane.svg'
 
 const Login = () => {
     const dispatch = useDispatch<TypedDispatch>()
@@ -40,6 +47,13 @@ const Login = () => {
                     <Button color={'green'} onClick={handleSubmit}>Войти</Button>
                 </div>
             </div>
+            <img className={cl(styles['background'], styles['big-cloud'])} src={bigCloud} alt='' />
+            <img className={cl(styles['background'], styles['plane'])} src={plane} alt='' />
+            <img className={cl(styles['background'], styles['medium-right'])} src={mediumRight} alt='' />
+            <img className={cl(styles['background'], styles['medium-left'])} src={mediumLeft} alt='' />
+            <img className={cl(styles['background'], styles['small-left'])} src={smallLeft} alt='' />
+            <img className={cl(styles['background'], styles['small-right'])} src={smallRight} alt='' />
+
         </div>
     )
 }

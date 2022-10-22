@@ -1,9 +1,10 @@
 @use '../../../styles/design-tokens' as dt;
 
 .container {
-    min-height: 100vh;
+    height: 100vh;
     background: linear-gradient(18.6deg, #A1C5FA 25.93%, rgba(74, 142, 245, 0.9) 80.79%);
     position: relative;
+    overflow: hidden;
 
     & .inner {
         padding: 20px 16px;
@@ -38,6 +39,36 @@
             width: max-content;
             margin: 20px auto 0;
         }
+    }
+
+    & .background {
+        position: absolute;
+        display: block;
+    }
+
+    & .plane {
+        left: 0;
+        bottom: 0;
+    }
+    & .medium-right {
+        right: -80px;
+        bottom: 20px;
+    }
+    & .medium-left {
+        bottom: 20px;
+    }
+    & .small-left {
+        bottom: 10px;
+        left: -20px;
+    }
+    & .small-right {
+        right: 0;
+        bottom: 20px;
+    }
+    & .big-cloud {
+        right: 0;
+        left: 0;
+        bottom: 59px;
     }
 }
 
