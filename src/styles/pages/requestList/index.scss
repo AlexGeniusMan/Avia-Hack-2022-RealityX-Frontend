@@ -1,1 +1,18 @@
 @use '../../../styles/design-tokens' as dt;
+
+.list {
+    padding: 0 16px;
+    .requestItem {
+        margin-bottom: 18px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.link {
+    display: block;
+    width: max-content;
+    margin: 28px auto 8px;
+}

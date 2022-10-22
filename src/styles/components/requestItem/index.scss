@@ -1,0 +1,68 @@
+@use '../../../styles/design-tokens' as dt;
+
+.request {
+    min-width: 403px;
+    display: block;
+    border: 1px solid;
+    border-radius: 8px;
+    @include dt.flexible();
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 24px;
+    user-select: none;
+    cursor: pointer;
+
+    & .info {
+        @include dt.flexible();
+        gap: 16px;
+
+        & .number {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            color: dt.$additional;
+        }
+        & .date {
+            color: dt.$general-100;
+            opacity: .3;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+
+    & .status {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: dt.$black;
+
+        &:before {
+            content: "•";
+            position: relative;
+            right: 8px;
+            font-size: 16px;
+            line-height: 6px;
+        }
+    }
+}
+.request-blue {
+    border-color: dt.$blue-50;
+
+    & .status:before {
+
+        color: dt.$blue-100;
+    }
+}
+.request-red {
+    border-color: dt.$red-50;
+    & .status:before {
+        color: dt.$red-100
+    }
+}
+.request-green {
+    border-color: dt.$green-100;
+    & .status:before {
+        color: dt.$green-100;
+    }
+}

@@ -13,3 +13,5 @@ export interface ClickableObjectMini {
     onFocus?: (event: React.MouseEvent<HTMLElement>) => void;
     onBlur?: (event: React.MouseEvent<HTMLElement>) => void;
 }
+
+export type RequestStatusType = 'Обработано' | 'В процессе' | 'Отклонено'
