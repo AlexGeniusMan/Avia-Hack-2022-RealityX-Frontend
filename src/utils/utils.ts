@@ -40,3 +40,8 @@ export const errorsHandler = (e: any, dispatch: Dispatch) => {
         errorNotify()
     }
 }
+
+export const getEndPath = (path: string) => {
+    const cutPath = path.split('/')
+    return cutPath[cutPath.length - 1]
+}
