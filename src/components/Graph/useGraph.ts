@@ -51,7 +51,6 @@ export const useGraph = (values: any) => {
 
     const calculateWidth = useCallback(() => {
         if(containerRef.current) {
-            console.log(containerRef.current.scrollWidth)
             return containerRef.current.scrollWidth
         }
 
@@ -87,7 +86,7 @@ export const useGraph = (values: any) => {
             setData(
                 values.map((item: any, index: number) => ({
                     ...item,
-                    timestamp: getCurrentData(new Date(item.timestamp)) + ' ' + getCurrentTime(new Date(item.timestamp))
+                    datetime: getCurrentData(new Date(item.datetime))
                 }))
             );
         }

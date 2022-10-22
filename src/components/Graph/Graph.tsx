@@ -13,6 +13,7 @@ import {
     YAxis
 } from 'recharts'
 import {useGraph} from './useGraph'
+import NoData from '../NoData/NoData'
 
 const Graph:FC<MyProps> = ({values, xAxes, yAxes, name, title, color='green', yLabel, xLabel, type='Line'}) => {
     const { data, width, YBarWidth, YBarRef, YMaxValue, containerRef} = useGraph(values)
@@ -21,6 +22,7 @@ const Graph:FC<MyProps> = ({values, xAxes, yAxes, name, title, color='green', yL
         <div ref={containerRef}>
             {/*Width of Y axis*/}
             {
+                values.length > 0 ?
             <>
                 <span className={styles['hidden']} ref={YBarRef}>{YMaxValue}</span>
                 <ResizableBox resizable={false} height={500} width={width}>
@@ -53,7 +55,7 @@ const Graph:FC<MyProps> = ({values, xAxes, yAxes, name, title, color='green', yL
                     </ResponsiveContainer>
                 </ResizableBox>
             </>
-                // : <NoData />
+                : <NoData />
             }
 
         </div>
@@ -63,7 +65,7 @@ const Graph:FC<MyProps> = ({values, xAxes, yAxes, name, title, color='green', yL
 export default Graph
 
 type MyProps = {
-    values?: {value: string, name: string}[]
+    values?: any
     xAxes: string
     xLabel?: string
     yAxes: string

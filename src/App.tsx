@@ -29,23 +29,17 @@ const App = () => {
 
     if(!isInitialize) return <Preloader />
 
-    const items = [
-        {label: 'Вариант 01', key: 'key 1'},
-        {label: 'Вариант 02', key: 'key 2'},
-        {label: 'Вариант 03', key: 'key 3', disabled: true},
-        {label: 'Вариант 04', key: 'key 4'},
-    ]
-
     return (
         <>
             <Routes>
                 <Route path='/login' element={<Login />} />
                 <Route path='/create' element={<CreateRequest />} />
-                <Route path='/request' element={<Navigate to={'/request/engine'} />} />
+                <Route path='/request' element={<Navigate to={'/'} />} />
                 <Route path='/request/*' element={<Request />} />
                 <Route path='/' element={<RequestList />} />
                 <Route path='*' element={<DragDrop />} />
             </Routes>
+
             <ToastContainer
                 position="bottom-right"
                 autoClose={3000}

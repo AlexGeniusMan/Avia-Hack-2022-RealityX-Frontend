@@ -29,4 +29,14 @@ export type TableMetricsColumnsType = {
     render?: (value: any, row: any, index: number) => void
 }
 
+export type EngineHistoryData = {
+    CRUISE: any
+    TAKEOFF: any
+}
+
+export type EngineHistoryGraphData = {
+    datetime: string
+    value: number
+}
+
 

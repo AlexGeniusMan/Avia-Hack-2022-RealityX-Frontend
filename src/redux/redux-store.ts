@@ -1,9 +1,10 @@
 import {Action, AnyAction, applyMiddleware, combineReducers, legacy_createStore} from 'redux'
 import thunkMiddleware, {ThunkAction, ThunkDispatch} from 'redux-thunk'
 import authReducer from './auth-reducer'
-
+import statisticReducer from './statistic-reducer'
 
 let rootReducer  = combineReducers({
+    stat: statisticReducer,
     auth: authReducer,
 });
 
