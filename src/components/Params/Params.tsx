@@ -5,6 +5,7 @@ import {Dropdown} from '../Dropdown/Dropdown'
 import {useLocation} from 'react-router-dom'
 import {getEndPath} from '../../utils/utils'
 import {useParams} from './useParams'
+import SelectComponent from '../SelectComponent/SelectComponent'
 
 const Params = () => {
     const {} = useParams({})
@@ -58,7 +59,7 @@ const Params = () => {
             {
                 currentPath === 'metrics' &&
                     <>
-                        <Dropdown className={styles['item']} items={itemsEngine} placeholder={'id_engine'} />
+                        <SelectComponent />
                         <Dropdown className={styles['item']} items={itemsMetrics} placeholder={'Дата'} />
                         <Dropdown className={styles['item']} items={itemsPhase} placeholder={'Фаза полета'} />
                     </>

@@ -22,7 +22,7 @@ export interface useDropdownProps {
   /** Dropdown open handler */
   handleOpen: (isOpen: boolean) => void;
 
-  /** Select item handler */
+  /** SelectComponent item handler */
   handleSelect: (label: string, key: string | number, event: React.MouseEvent<HTMLElement>) => void;
 
   /** Key up handler */
