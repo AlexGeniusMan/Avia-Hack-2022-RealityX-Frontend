@@ -17,8 +17,8 @@ export interface ClickableObjectMini {
 export type RequestStatusType = 'Обработано' | 'В процессе' | 'Отклонено'
 
 export type TableMetricsDataType = {
-    key: string
-    value: number
+    key: string | number
+    value: number | string
     metrics: string
 }
 
@@ -29,6 +29,10 @@ export type TableMetricsColumnsType = {
     render?: (value: any, row: any, index: number) => void
 }
 
+export type MetricsData = {
+    CRUISE: any
+    TAKEOFF: any
+}
 export type EngineHistoryData = {
     CRUISE: any
     TAKEOFF: any

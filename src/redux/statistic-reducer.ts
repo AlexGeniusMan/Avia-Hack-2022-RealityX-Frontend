@@ -1,7 +1,7 @@
 import {BaseThunkType, InferActionsTypes} from "./redux-store";
 import {authActions, AuthActionsType} from './auth-reducer'
-import {statisticAPI} from '../api/statistic-api'
-import {EngineHistoryData, EngineHistoryGraphData} from '../types/Types'
+import {getMetricsDataResponseType, statisticAPI} from '../api/statistic-api'
+import {EngineHistoryData, EngineHistoryGraphData, MetricsData} from '../types/Types'
 import {errorNotify} from '../utils/utils'
 
 export type InitialStateType = typeof initialState
@@ -9,7 +9,9 @@ const initialState = {
     sessionId: 0 as number,
     engineHistory: {} as EngineHistoryData,
     engineHistoryPhases: [] as string[],
-    engineGraphData: [] as EngineHistoryGraphData[]
+    engineGraphData: [] as EngineHistoryGraphData[],
+    metricsData: {} as MetricsData,
+    metricsTableData: {} as any,
 }
 
 const statisticReducer = (state = initialState, action: StatisticActionsType):InitialStateType  => {
@@ -30,6 +32,17 @@ const statisticReducer = (state = initialState, action: StatisticActionsType):In
                 ...state,
                 engineGraphData: action.payload.data,
             }
+        case 'AH/STATISTIC/METRICS_DATA_RECEIVED':
+            return {
+                ...state,
+                metricsData: action.payload.data,
+                engineHistoryPhases: Object.keys(action.payload.data)
+            }
+        case 'AH/STATISTIC/METRICS_TABLE_DATA_RECEIVED':
+            return {
+                ...state,
+                metricsTableData: action.payload.data,
+            }
         default:
             return state;
     }
@@ -45,6 +58,10 @@ export const statisticActions = {
         ({type: 'AH/STATISTIC/ENGINE_HISTORY_RECEIVED', payload: {data}} as const),
     setEngineGraphData: (data: EngineHistoryGraphData[]) =>
         ({type: 'AH/STATISTIC/ENGINE_GRAPH_DATA_RECEIVED', payload: {data}} as const),
+    setMetricsData: (data: MetricsData) =>
+        ({type: 'AH/STATISTIC/METRICS_DATA_RECEIVED', payload: {data}} as const),
+    setMetricsTableData: (data: any) =>
+        ({type: 'AH/STATISTIC/METRICS_TABLE_DATA_RECEIVED', payload: {data}} as const),
 }
 
 export const sendFile = (file: File): ThunkType => {
@@ -75,6 +92,38 @@ export const getEngineHistory = (sessionId: string): ThunkType => {
         }
         catch (e: any) {
             console.error('getEngineHistory', e.response)
+            dispatch(authActions.toggleIsFetching(false))
+            errorNotify()
+        }
+    }
+}
+export const getMetrics = (sessionId: string): ThunkType => {
+    return async (dispatch) => {
+        dispatch(authActions.toggleIsFetching(true))
+        try {
+            let data = await statisticAPI.getMetrics(sessionId)
+            console.log('getMetrics', data)
+            dispatch(statisticActions.setMetricsData(data.data))
+            dispatch(authActions.toggleIsFetching(false))
+        }
+        catch (e: any) {
+            console.error('getMetrics', e.response)
+            dispatch(authActions.toggleIsFetching(false))
+            errorNotify()
+        }
+    }
+}
+export const getMetricsTableData = (sessionId: string, phase: string, engineId: string, flightDateTime: string): ThunkType => {
+    return async (dispatch) => {
+        dispatch(authActions.toggleIsFetching(true))
+        try {
+            let data = await statisticAPI.getMetricsData(sessionId, phase, engineId, flightDateTime)
+            console.log('getMetricsTableData', data)
+            dispatch(statisticActions.setMetricsTableData(data.data))
+            dispatch(authActions.toggleIsFetching(false))
+        }
+        catch (e: any) {
+            console.error('getMetricsTableData', e.response)
             dispatch(authActions.toggleIsFetching(false))
             errorNotify()
         }

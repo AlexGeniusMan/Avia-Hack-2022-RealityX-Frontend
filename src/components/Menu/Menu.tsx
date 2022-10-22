@@ -15,7 +15,7 @@ const Menu = () => {
                 <Title children={'Меню'} />
             </div>
             <NavLink className={({isActive}) => cl(styles['link'], isActive && styles['active'])} to={`/request/engine/${sessionId}`}>История по двигателю</NavLink>
-            <NavLink className={({isActive}) => cl(styles['link'], isActive && styles['active'])} to={`/request/engine_type/${sessionId}`}>История по типу двигателя</NavLink>
+            {/*<NavLink className={({isActive}) => cl(styles['link'], isActive && styles['active'])} to={`/request/engine_type/${sessionId}`}>История по типу двигателя</NavLink>*/}
             <NavLink className={({isActive}) => cl(styles['link'], isActive && styles['active'])} to={`/request/metrics/${sessionId}`}>Метрики</NavLink>
         </>
     )

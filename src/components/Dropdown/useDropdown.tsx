@@ -12,8 +12,6 @@ export function useDropdown(props: DropdownProps): useDropdownProps {
         props.defaultSelectedKey && props.items.find((item) => item.key === props.defaultSelectedKey)?.label
         || null)
 
-    console.log(activeItemKey)
-
     useEffect(() => {
         if (props.defaultSelectedKey || props.defaultSelectedKey === '') {
             setActiveItemKey(String(props.defaultSelectedKey))
