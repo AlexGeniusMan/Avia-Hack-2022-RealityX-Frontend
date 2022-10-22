@@ -1,0 +1,10 @@
+@use '../../../styles/design-tokens' as dt;
+
+.hidden {
+    pointer-events: none;
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    font-size: 14px;
+}
