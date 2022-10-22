@@ -1,0 +1,38 @@
+@use '../../../styles/design-tokens' as dt;
+
+.inner {
+    padding: 20px 16px;
+    max-width: 400px;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    user-select: none;
+    transform: translateY(-50%);
+    animation: display 0.3s linear;
+
+    & .title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: dt.$typo-font-p-medium-size;
+        font-weight: 700;
+        line-height: dt.$typo-font-p-medium-line-height;
+    }
+}
+
+@keyframes display {
+    from {
+        opacity: 0;
+        transform: translateY(-30%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-50%);
+    }
+}

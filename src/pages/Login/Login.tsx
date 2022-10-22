@@ -4,7 +4,6 @@ import {Navigate} from 'react-router-dom'
 import {AppStateType, TypedDispatch} from '../../redux/redux-store'
 import {useDispatch, useSelector} from 'react-redux'
 import cl from 'classnames'
-import {motion} from "framer-motion";
 import Preloader from '../../components/Preloader/Preloader'
 import {Input} from '../../components/Input/Input'
 import {Button} from '../../components/Button/Button'
@@ -15,13 +14,15 @@ import mediumLeft from '../../assets/Login/MediumLeftCloud.svg'
 import mediumRight from '../../assets/Login/MediumRightCLoud.svg'
 import bigCloud from '../../assets/Login/BigCloud.svg'
 import plane from '../../assets/Login/LoginPlane.svg'
+import logo from '../../assets/Login/WhiteLogo.svg'
+import SkyLayout from '../../components/SkyLayout/SkyLayout'
+import SkyBlock from '../../components/SkyBlock/SkyBlock'
 
 const Login = () => {
     const dispatch = useDispatch<TypedDispatch>()
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
 
-    const isFetch = useSelector((state:AppStateType) => state.auth.isFetch)
     const isLogin = useSelector((state:AppStateType) => state.auth.isLogin)
     const isAuth = useSelector((state:AppStateType) => state.auth.isAuth)
 
@@ -33,33 +34,11 @@ const Login = () => {
         dispatch(login(email, password))
     }
 
-    const animations = {
-        hidden: {
-            opacity: 0,
-            x:0,
-            y:50,
-        },
-        visible: {
-            opacity: 1,
-            x:0,
-            y:0,
-        }
-    }
-
     return (
-        <div className={styles['container']}>
-            {isFetch && <Preloader />}
-            <img className={cl(styles['background'], styles['big-cloud'])} src={bigCloud} alt='' />
-            <img className={cl(styles['background'], styles['plane'])} src={plane} alt='' />
-            <img className={cl(styles['background'], styles['medium-right'])} src={mediumRight} alt='' />
-            <img className={cl(styles['background'], styles['medium-left'])} src={mediumLeft} alt='' />
-            <img className={cl(styles['background'], styles['small-left'])} src={smallLeft} alt='' />
-            <img className={cl(styles['background'], styles['small-right'])} src={smallRight} alt='' />
-            <motion.div style={{originY: '-50%'}} variants={animations} initial="hidden" animate="visible"
-                        transition={{ duration: 1 }} className={styles['inner']}>
-                <h2 className={styles['title']}>Авторизация</h2>
+        <SkyLayout>
+            <SkyBlock title={'Авторизация'}>
                 <div className={styles['input']}>
-                    <Input color={'green'} placeholder={'realityxTeam@pochta.dom'} defaultValue={email} title={'Логин'} onChange={(e) => setEmail(e.target.value)} />
+                    <Input color={'green'} placeholder={'example@example.ru'} defaultValue={email} title={'Логин'} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div className={styles['input']}>
                     <Input color={'green'} placeholder={'************'} defaultValue={password} title={'Пароль'} onChange={(e) => setPassword(e.target.value)} type='password' />
@@ -67,8 +46,8 @@ const Login = () => {
                 <div className={styles['button']}>
                     <Button color={'green'} onClick={handleSubmit}>Войти</Button>
                 </div>
-            </motion.div>
-        </div>
+            </SkyBlock>
+        </SkyLayout>
     )
 }
 
