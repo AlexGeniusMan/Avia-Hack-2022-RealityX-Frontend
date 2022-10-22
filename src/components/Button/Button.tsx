@@ -29,7 +29,7 @@ export const Button = forwardRef((props: ButtonProps, ref: any) => {
 ))
 
   return (
-    <button {...events} ref={ref} style={props.style} className={classes} disabled={(!!props.disabled) || !!props.loading}>
+    <button form={props.form} type={props.type} {...events} ref={ref} style={props.style} className={classes} disabled={(!!props.disabled) || !!props.loading}>
       {props.children}
       {props.loading ? <LoadingIcon loadingIcon={props.loadingIcon} /> : <LocalIcon icon={props.icon} />}
     </button>);

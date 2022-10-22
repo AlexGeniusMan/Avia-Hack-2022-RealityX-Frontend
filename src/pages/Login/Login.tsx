@@ -21,6 +21,14 @@ const Login = () => {
         return <Navigate to='/' />
     }
 
+    const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if(e.code === 'Enter') {
+            if(email !== '' && password !== '') {
+                handleSubmit()
+            }
+        }
+    }
+
     const handleSubmit = () => {
         dispatch(login(email, password))
     }
@@ -29,10 +37,10 @@ const Login = () => {
         <SkyLayout>
             <SkyBlock title={'Авторизация'}>
                 <div className={styles['input']}>
-                    <Input color={'green'} placeholder={'example@example.ru'} defaultValue={email} title={'Логин'} onChange={(e) => setEmail(e.target.value)} />
+                    <Input onKeyUp={handleKeyUp} color={'green'} placeholder={'example@example.ru'} defaultValue={email} title={'Логин'} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div className={styles['input']}>
-                    <Input color={'green'} placeholder={'************'} defaultValue={password} title={'Пароль'} onChange={(e) => setPassword(e.target.value)} type='password' />
+                    <Input onKeyUp={handleKeyUp} color={'green'} placeholder={'************'} defaultValue={password} title={'Пароль'} onChange={(e) => setPassword(e.target.value)} type='password' />
                 </div>
                 <div className={styles['button']}>
                     <Button color={'green'} onClick={handleSubmit}>Войти</Button>

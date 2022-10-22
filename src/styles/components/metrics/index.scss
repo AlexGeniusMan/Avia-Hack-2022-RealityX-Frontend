@@ -30,9 +30,9 @@
                 text-align: center;
                 cursor: default;
                 transition: background 0.4s ease;
-                //&:hover {
-                //    background: dt.$orange-50;
-                //}
+                &:hover {
+                    background: dt.$gray;
+                }
             }
             & td {
                 height: 36px;
@@ -47,10 +47,6 @@
                 white-space: nowrap;
                 overflow: hidden;
                 cursor: default;
-                transition: border 0.4s ease;
-                //&:hover {
-                //    border: 1px solid dt.$orange-50;
-                //}
             }
         }
     }

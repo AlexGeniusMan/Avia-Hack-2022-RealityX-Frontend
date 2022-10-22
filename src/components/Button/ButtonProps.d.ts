@@ -4,6 +4,7 @@ import {ClickableObjectMini, DefaultParams} from '../../types/Types'
 
 export interface ButtonProps extends DefaultParams, ClickableObjectMini {
     children?: React.ReactNode | string;
+    form?: string;
     iconPosition?: 'left' | 'right';
     icon?: React.ReactNode<Icon>;
     disabled?: boolean;
@@ -11,4 +12,5 @@ export interface ButtonProps extends DefaultParams, ClickableObjectMini {
     success?: boolean;
     loadingIcon?: React.ReactNode<Icon>;
     color?: 'green' | 'blue' | 'red' | 'gray'
+    type?: "button" | "submit" | "reset",
 }

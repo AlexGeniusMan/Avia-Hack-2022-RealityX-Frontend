@@ -130,8 +130,9 @@ export const login = (username: string, password: string): ThunkType => {
             console.error('login', e.response)
             if (e.response.status === StatusCodesEnum.Unauthorized) {
                 dispatch(authActions.setLoginError(true))
+                errorNotify('Неправильный логин или пароль')
             } else {
-                errorNotify()
+                errorNotify('')
             }
             dispatch(authActions.toggleIsFetching(false))
             dispatch(authActions.setIsInitialize(true))
