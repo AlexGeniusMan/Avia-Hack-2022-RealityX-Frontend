@@ -8,6 +8,7 @@
     height: 50px;
     display: flex;
     justify-content: center;
+    pointer-events: none;
 
     & svg {
         display: block;
